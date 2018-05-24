@@ -10,6 +10,19 @@ import { User } from './shared/User';
 export class UsersComponent implements OnInit {
 
   users: User[];
+  settings = {
+    columns: {
+      id: {
+        title: 'ID'
+      },
+      name: {
+        title: 'Name'
+      },
+      age: {
+        title: 'Movies'
+      }
+    }
+  };
 
   constructor(private userService: UserService) { }
 
@@ -17,9 +30,9 @@ export class UsersComponent implements OnInit {
     this.userService
       .getUsers()
       .subscribe((data: User[]) => {
-          this.users = data;
-        });
+        this.users = data;
+      });
   }
-  
+
 
 }
